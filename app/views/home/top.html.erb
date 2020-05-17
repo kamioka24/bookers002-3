@@ -1,0 +1,13 @@
+<main>
+	<p><%= flash[:notice] %></p>
+
+	<h1 class="top-title">welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers2 !!</h1>
+	<p class="top-comment">In <span class="glyphicon glyphicon-book" aria-hidden="true"></span><span>Bookers,</span><br>
+
+	you can share and exchange your opinions , inpressions , and emotions<br>
+
+	about various books!</p>
+
+	<%= link_to "Log in", user_session_path, class: "login-btn btn-defalut" %><br>
+	<%= link_to "Sign Up", new_user_registration_path, class: "signup-btn btn-defalut" %></p>
+</main>
