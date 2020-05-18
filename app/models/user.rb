@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
-  
-  attachment :profile_image
+
+  attachment :profile_image # attachment :profile_image, destroy: false?
   validates :name, presence: true, length: {in: 2..20} # 2~20文字以内
   validates :introduction, length: {maximum: 50} # 50文字以内
 end

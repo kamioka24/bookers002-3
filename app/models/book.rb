@@ -7,6 +7,6 @@ class Book < ApplicationRecord
             favorites.where(user_id: user.id).exists? # exists = 存在
     end
 
-	validates :title, presence: true
+	validates :title, presence: true #空欄
 	validates :body, presence: true, length: {maximum: 200} #200文字以内
 end

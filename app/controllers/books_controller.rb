@@ -3,10 +3,10 @@ class BooksController < ApplicationController
   before_action :current_book, only:[:edit, :update]
 
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(book_params) #新規投稿保存
     @book.user_id = current_user.id
     if @book.save
-       redirect_to book_path(@book.id), notice: "You have creatad book successfully."
+       redirect_to book_path(@book), notice: "You have creatad book successfully."
     else
       @books = Book.all
       @user = User.find(current_user.id)
@@ -21,10 +21,9 @@ class BooksController < ApplicationController
   end
 
   def show
-    @my_book = Book.find(params[:id])
-    @book = Book.new
-    @user = @my_book.user
-    @book_comment = BookComment.new
+    @book = Book.find(params[:id])
+    @user = @book.user
+    @book_comment = BookComment.new　#コメント投稿
   end
 
   def edit
@@ -47,11 +46,11 @@ class BooksController < ApplicationController
   end
 
   private
-
+    #url直接防止　メソッドを自己定義してbefore_actionで発動。
   def current_book
     book = Book.find(params[:id])
     if current_user != book.user
-      redirect_to books_path
+       redirect_to books_path
     end
   end
 

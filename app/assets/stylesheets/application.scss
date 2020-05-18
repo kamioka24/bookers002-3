@@ -15,7 +15,7 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-// @import "font-awesome"　エラーが出る
+@import "font-awesome";
 
 * {
 	margin: 0;
