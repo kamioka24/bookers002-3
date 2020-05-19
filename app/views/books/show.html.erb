@@ -32,14 +32,14 @@
 						<% end %>
 					</td>
 				    <td>コメント数:<%= @book.book_comments.count %></td>
-				    
+
 					<% if @user == current_user %>
-						<td><%= link_to "Edit", edit_book_path(@book.id), class: "book-edit book-btn" %></td>
+						<td><%= link_to "Edit", edit_book_path(@book), class: "book-edit book-btn" %></td>
 					<% end %>
 					<% if @user == current_user %>
-						<td><%= link_to "Destroy", book_path(@book.id), class: "book-destroy book-btn", method: :delete, "data-confirm" => "本当に削しますか？" %></td>
+						<td><%= link_to "Destroy", book_path(@book), class: "book-destroy book-btn", method: :delete, "data-confirm" => "本当に削しますか？" %></td>
 					<% end %>
-				</tr>					
+				</tr>
 				<% @book.book_comments.each do |book_comment|  %>
 					<tr>
 						<td style="border: none;">
@@ -60,6 +60,7 @@
 		    <%= form_for [@book, @book_comment] do |f| %>
 				<!-- bookに紐づいたbook_commentだから、配列で２つ書く必要がある -->
 			    <%= f.text_area :comment, class: "book-comment-form", rows:'5', placeholder: "コメントをここに" %>
+			    <!--comment, の後ろに次のように書いて広さの指定をする方法もある。size: "90x5" cssが不要になる。%> -->
 			    <%= f.submit "送信", class: "comment-btn" %>
             <% end %>
 		</div>

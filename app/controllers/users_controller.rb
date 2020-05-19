@@ -2,16 +2,16 @@ class UsersController < ApplicationController
   before_action :authenticate_user! #devise側が用意したもの
   before_action :error, only:[:edit, :update]
 
-  def index
-    @user = User.find(current_user.id) #or current_user
-    @users = User.all
-    @book = Book.new #新規投稿 保存はbookコントローラ
-  end
-
   def show
     @user = User.find(params[:id])
     @book = Book.new #新規投稿 保存はbookコントローラ
     @books = @user.books
+  end
+
+  def index
+    @user = User.find(current_user.id) #or current_user
+    @users = User.all
+    @book = Book.new #新規投稿 保存はbookコントローラ
   end
 
   def edit
