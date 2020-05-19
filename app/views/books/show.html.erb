@@ -15,7 +15,7 @@
 							<%= @user.name %> <!-- 本の投稿者の名前 @userはコントローラにて定義済み -->
 						<% end %>
 					</td>
-					<td><%= link_to @book.title, book_path %></td>
+					<td><%= link_to @book.title, book_path(@book) %></td>
 					<td><%= @book.body %></td>
 
 					<td>
@@ -40,6 +40,16 @@
 						<td><%= link_to "Destroy", book_path(@book), class: "book-destroy book-btn", method: :delete, "data-confirm" => "本当に削しますか？" %></td>
 					<% end %>
 				</tr>
+
+				<% if @book_comment.errors.any? %>
+					<%= @book_comment.errors.count %>error prohibited this book_comment from being saved:<br>
+						<ul>
+						<% @book_comment.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+						</ul>
+				<% end %>
+
 				<% @book.book_comments.each do |book_comment|  %>
 					<tr>
 						<td style="border: none;">
