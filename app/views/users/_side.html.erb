@@ -1,26 +1,35 @@
 <div class="col-xs-3">
 	<h1>User info</h1>
-
 	<%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "no_image.jpg"%>
+	<table width="350">
+		<tr>
+			<th>name</th>
+			<th><%= user.name %></th>
+		</tr>
 
-	<p>name:<%= user.name %></p>
+		<tr>
+			<th>introduction</th>
+			<th><%= user.introduction %></th>
+		</tr>
 
-	<p>introduction:<%= user.introduction %></p>
+		<tr>
+			<th>follows</th>
+			<th><%= link_to user.followings.count, follows_user_path(user) %></th>
+		</tr>
+
+		<tr>
+			<th>followers</th>
+			<th><%= link_to user.followers.count, followers_user_path(user) %></th>
+		</tr>
+	</table>
 
 	<% unless current_user == user %>
 	    <% if current_user.following?(user) %>
-	    	<%= form_for(current_user.relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f| %>
-		      	<%= hidden_field_tag :follow_id, user.id %>
-		      	<%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
-	    	<% end %>
+	    	<%= render 'users/unfollow', user: user %>
 	  	<% else %>
-	    	<%= form_for(current_user.relationships.build) do |f| %>
-			    <%= hidden_field_tag :follow_id, user.id %>
-			    <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
-	    	<% end %>
+	    	<%= render 'users/follow', user: user %>
 	  	<% end %>
 	<% end %>
-
 
 	<% if user.id == current_user.id %>
 		<%= link_to edit_user_path(user.id) do %>

@@ -1,0 +1,5 @@
+<%= form_for(current_user.relationships.build) do |f| %>
+    <%= hidden_field_tag :follow_id, user.id %>
+    <!-- hidden_field_tagは、一個だけパラメータを他のアクションへ単体で渡したい時に使用 -->
+    <%= f.submit 'フォローする', class: 'btn btn-primary btn-block' %>
+<% end %>
