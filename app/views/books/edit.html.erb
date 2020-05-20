@@ -10,7 +10,7 @@
 		</ul>
 	<% end %>
 
-	<%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
+	<%= form_for(@book) do |f| %>
 		<p>Title<br>
 		<%= f.text_field :title %></p>
 
