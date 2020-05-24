@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :books, dependent: :destroy
+  has_many :books, dependent: :destroy #userが消えればbookも消える
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   # フォロー機能
@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
   		   # 架空モデルfollowers　中間テーブルのreverse_of_relationshipsを通るように　フォロワー(user)の取得
   		   # foregin_key = 入口
-		   # source = 出口
+		     # source = 出口
   # フォロー機能
   attachment :profile_image # attachment :profile_image, destroy: false?
   validates :name, presence: true, length: {in: 2..20} # 2~20文字以内

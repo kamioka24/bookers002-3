@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :current_book, only:[:edit, :update]
 
   def create
-    @book = Book.new(book_params) #新規投稿保存
+    @book = Book.new(book_params) #新規投稿保存。ストロングパラメーターを使用、
     @book.user_id = current_user.id
     if @book.save
        redirect_to book_path(@book), notice: "You have creatad book successfully."
@@ -48,8 +48,8 @@ class BooksController < ApplicationController
   private
     #url直接防止　メソッドを自己定義してbefore_actionで発動。
   def current_book
-    book = Book.find(params[:id])
-    if current_user != book.user
+    @book = Book.find(params[:id])
+    if current_user != @book.user
        redirect_to books_path
     end
   end

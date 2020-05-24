@@ -15,7 +15,8 @@
 		<%= f.text_field :name %></p>
 
 		<p>Image</p>
-		<%= f.attachment_field :profile_image %>
+		<!-- 画像選択用のボタン -->
+		<%= f.attachment_field :profile_image %> <!-- カラムはprofile_image_idだが、_idは省く -->
 
 		<p>Introduction
 		<%= f.text_area :introduction %></p>

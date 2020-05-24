@@ -35,14 +35,14 @@
                 <% end %>
               </li>
               <li class="nav-list-item">
-                <%= link_to destroy_user_session_path, method: :delete do %> <!-- 要確認 -->
+                <%= link_to destroy_user_session_path, method: :delete do %>
                   <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                   logout
                 <% end %>
               </li>
             <% else %>
               <li class="nav-list-item">
-                <%= link_to root_path do %> <!-- 要変更 -->
+                <%= link_to root_path do %>
                   <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                   Home
                 <% end %>
@@ -67,10 +67,12 @@
               </li>
             <% end %>
           </ul>
-      </nav>
-    </div>
+        </nav>
+      </div>
     </header>
-
+    <% if user_signed_in? %>
+      
+    <% end %>
     <%= yield %>
 
     <footer>
