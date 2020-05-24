@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   	resource :favorites, only: [:create, :destroy]
   	resources :book_comments, only: [:create, :destroy]
   end
-  get 'searches/search'
+  get 'search/search' #コントローラ名を複数形にし忘れた為
 end
