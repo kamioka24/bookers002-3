@@ -36,6 +36,24 @@ li {
 	list-style: none;
 }
 
+// トップページ
+
+.sign-up {
+	color: #fff;
+	background-color: #108001;
+	padding: 5px 5px;
+	border-radius: 4px;
+	margin: 10px 0;
+}
+
+.log-in {
+	color: #fff;
+	background-color: #0F80FF;
+	padding: 5px 5px;
+	border-radius: 4px;
+	margin: 10px 0;
+}
+
 // ヘッダー
 
 header {
@@ -66,14 +84,11 @@ header {
 	margin-right: 30px;
 }
 
-// フッター
+// 検索フォーム
 
-footer {
-	width: 87%;
-}
-
-.footer-contents {
-	float: right;
+.search-form {
+	margin-top: 20px;
+	margin-left: 400px;
 }
 
 main {
@@ -137,6 +152,8 @@ h1 {
 	padding: 5px 10px;
 }
 
+// 投稿の編集・削除
+
 .book-edit {
 	color: #fff;
 	background-color: #108001;
@@ -145,22 +162,6 @@ h1 {
 .book-destroy {
 	color: #888;
 	background-color: #800002;
-}
-
-.sign-up {
-	color: #fff;
-	background-color: #108001;
-	padding: 5px 5px;
-	border-radius: 4px;
-	margin: 10px 0;
-}
-
-.log-in {
-	color: #fff;
-	background-color: #0F80FF;
-	padding: 5px 5px;
-	border-radius: 4px;
-	margin: 10px 0;
 }
 
 // コメントフォーム
@@ -172,4 +173,14 @@ h1 {
 .comment-btn {
 	float: right;
 	padding: 5px 20px;
+}
+
+// フッター
+
+footer {
+	width: 87%;
+}
+
+.footer-contents {
+	float: right;
 }

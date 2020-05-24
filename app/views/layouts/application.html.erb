@@ -70,11 +70,21 @@
         </nav>
       </div>
     </header>
-    <% if user_signed_in? %>
-      
-    <% end %>
-    <%= yield %>
-
+    <main>
+      <!-- 検索機能 -->
+      <div class="search-form">
+        <% if user_signed_in? %>
+          <%= form_tag(searches_search_path, method: :get) do %>
+            <%= text_field_tag :search %> <!-- ワード検索フォーム -->
+            <%= select_tag(:option, options_for_select([["User","1"],["Book","2"]])) %>
+            <%= select_tag(:choice, options_for_select([["完全一致","1"],["前方一致","2"],["後方一致","3"],["部分一致","4"]])) %>
+            <%= submit_tag "検索" %>
+          <% end %>
+        <% end %>
+      </div>
+      <!-- 検索機能 -->
+      <%= yield %>
+    </main>
     <footer>
       <div class="footer-contents">
         CopyRight Infratop.inc

@@ -37,5 +37,21 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
     # フォローしている User 達を取得。other_user が含まれていればtrue,含まれていなければfalseを返す。
   end
+    # 検索機能・Userが選択されて、各項目選択時の処理
+  def User.search(search, user_or_book, how_search)
+    if user_or_book == "1"
+      if how_search == "1"
+         User.where(['name LIKE ?', "#{search}"])
+      elsif how_search == "2"
+         User.where(['name LIKE ?', "#{search}%"])
+      elsif how_search == "3"
+         User.where(['name LIKE ?', "%#{search}"])
+      elsif how_search == "4"
+         User.where(['name LIKE ?', "%#{search}%"])
+      else
+         User.all
+      end
+    end
+  end
 
 end

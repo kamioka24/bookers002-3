@@ -1,0 +1,21 @@
+<% if @user_or_book == "1" %>
+    <h1>Users search for</h1>
+    <table>
+        <% @users.each do |user| %>
+            <tr>
+                <th></th>
+                <th><%= user.name %></th>
+            </tr>
+        <% end %>
+    </table>
+<% elsif @user_or_post == "2" %>
+    <h2>Books search for</h2>
+    <table>
+        <% @books.each do |book| %>
+            <tr>
+                <th></th>
+                <th><%= book.title %></th>
+            </tr>
+        <% end %>
+    </table>
+<% end %>

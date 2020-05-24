@@ -42,15 +42,6 @@
 					<% end %>
 				</tr>
 
-				<% if @book_comment.errors.any? %>
-					<%= @book_comment.errors.count %>error prohibited this book_comment from being saved:<br>
-						<ul>
-						<% @book_comment.errors.full_messages.each do |message| %>
-							<li><%= message %></li>
-						<% end %>
-						</ul>
-				<% end %>
-
 				<% @book.book_comments.each do |book_comment|  %>
 					<tr>
 						<td style="border: none;">
@@ -68,12 +59,22 @@
 					</tr>
 				<% end %>
 			</table>
-			 <%= form_for [@book, @book_comment] do |f| %>
+
+			<% if @book_comment.errors.any? %>
+				<%= @book_comment.errors.count %>error prohibited this book_comment from being saved:<br>
+					<ul>
+					<% @book_comment.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+					</ul>
+			<% end %>
+
+			<%= form_for [@book, @book_comment] do |f| %>
 				<!-- bookに紐づいたbook_commentだから、配列で２つ書く必要がある -->
-				 <%= f.text_area :comment, class: "book-comment-form", rows:'5', placeholder: "コメントをここに" %>
-				 <!--comment, の後ろに次のように書いて広さの指定をする方法もある。size: "90x5" cssが不要になる。%> -->
-				 <%= f.submit "送信", class: "comment-btn" %>
-				<% end %>
+				<%= f.text_area :comment, class: "book-comment-form", rows:'5', placeholder: "コメントをここに" %>
+				<!--comment, の後ろに次のように書いて広さの指定をする方法もある。size: "90x5" cssが不要になる。%> -->
+				<%= f.submit "送信", class: "comment-btn" %>
+			<% end %>
 		</div>
 	</div>
 </div>
