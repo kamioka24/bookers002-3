@@ -1,5 +1,5 @@
 <% if @user_or_book == "1" %>
-    <h2>Users search for</h2>
+    <h2>Users search for "<%= @word %>"</h2>
     <table width="800">
         <% @users.each do |user| %>
             <tr>
@@ -10,7 +10,7 @@
         <% end %>
     </table>
 <% elsif @user_or_book == "2" %>
-    <h2>Books search for</h2>
+    <h2>Books search for "<%= @word %>"</h2>
     <table width="800">
         <% @books.each do |book| %>
             <tr>
