@@ -29,9 +29,9 @@
 	  	<% else %>
 	    	<%= render 'users/follow', user: user %>
 	  	<% end %>
-	<% end %>
+	<% end %>_
 
-	<% if user.id == current_user.id %>
+	<% if user.id == currentuser.id %>
 		<%= link_to edit_user_path(user.id) do %>
 			<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> <!-- aria-hiddenは読み飛ばし機能 -->
 		<% end %>

@@ -53,7 +53,7 @@
 						<td style="border: none;">
 							<%= book_comment.comment %>
 							<% if book_comment.user == current_user %>
-								<%= link_to "Destroy", book_book_comment_path(@book, book_comment), class: "book-destroy book-btn", method: :delete, "data-confirm" => "本当に削しますか？" %>
+								<%= link_to "Destroy", book_book_comment_path(@book, book_comment), class: "book-destroy book-btn", method: :delete, "data-confirm" => "本当に消しますか？" %>
 							<% end %>
 						</td>
 					</tr>

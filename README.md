@@ -1,5 +1,7 @@
 # README
 
+## bookers2にいいね、コメント、フォロー、検索機能を追加実装
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
